@@ -1,0 +1,9 @@
+[submodule "striker"]
+	path = striker
+	url = ../../striker
+[submodule "public_html/staticfiles"]
+	path = public_html/staticfiles
+	url = ../staticfiles
+[submodule "wheels"]
+	path = wheels
+	url = ../wheels
