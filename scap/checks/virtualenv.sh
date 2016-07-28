@@ -11,7 +11,7 @@ PIP=${VENV}/bin/pip
 
 # Ensure that the virtual environment exists
 mkdir -p $VENV
-virtualenv --python python3 --system-site-packages $VENV
+virtualenv --python python3 --system-site-packages $VENV || /bin/true
 
 # Remove all existing packages from the venv
 $PIP freeze | xargs $PIP uninstall -y
