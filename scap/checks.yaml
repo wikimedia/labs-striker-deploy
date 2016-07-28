@@ -1,0 +1,8 @@
+---
+checks:
+  virtualenv:
+    type: command
+    stage: promote
+    timeout: 300
+    group: default
+    command: bash /srv/deployment/striker/deploy/scap/checks/virtualenv.sh
