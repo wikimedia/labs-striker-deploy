@@ -1,3 +1,4 @@
 *.py[cod]
 /.tox
+/_build
 __pycache__/
