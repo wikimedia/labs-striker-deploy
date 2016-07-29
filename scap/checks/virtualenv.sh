@@ -14,7 +14,10 @@ mkdir -p $VENV
 virtualenv --python python3 $VENV || /bin/true
 
 # Remove all existing packages from the venv
-$PIP freeze | xargs $PIP uninstall -y
+INSTALLED=$($PIP freeze --local)
+for p in $INSTALLED; do
+    $PIP uninstall -y $p
+done
 
 # Install all of the packaged wheels
 $PIP install --use-wheel --no-deps ${DEPLOY_DIR}/wheels/*.whl
