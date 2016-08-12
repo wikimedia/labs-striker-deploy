@@ -1,4 +1,5 @@
 *.py[cod]
 /.tox
 /_build
+/scap/log/
 __pycache__/
