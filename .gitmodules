@@ -2,7 +2,7 @@
 	path = striker
 	url = ../../striker
 [submodule "public_html/staticfiles"]
-	path = public_html/staticfiles
+	path = public_html/static
 	url = ../staticfiles
 [submodule "wheels"]
 	path = wheels
