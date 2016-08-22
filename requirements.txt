@@ -16,7 +16,9 @@ oauthlib==1.1.2
 pyasn1==0.1.9
 pycparser==2.14
 pyldap==2.4.25.1
+python-logstash==0.4.6
 python-memcached==1.58
 requests==2.10.0
 requests-oauthlib==0.6.2
 six==1.10.0
+wheel==0.29.0
