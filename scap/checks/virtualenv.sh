@@ -6,6 +6,8 @@ set -o pipefail
 
 VENV=/srv/deployment/striker/venv
 DEPLOY_DIR=/srv/deployment/striker/deploy
+WHEEL_DIR=${DEPLOY_DIR}/wheels
+REQUIREMENTS=${DEPLOY_DIR}/requirements.txt
 
 PIP=${VENV}/bin/pip
 
@@ -13,11 +15,10 @@ PIP=${VENV}/bin/pip
 mkdir -p $VENV
 virtualenv --python python3 $VENV || /bin/true
 
-# Remove all existing packages from the venv
-INSTALLED=$($PIP freeze --local)
-for p in $INSTALLED; do
-    $PIP uninstall -y $p
-done
-
-# Install all of the packaged wheels
-$PIP install --use-wheel --no-deps ${DEPLOY_DIR}/wheels/*.whl
+# Install or upgrade all requirements from wheel cache
+$PIP install \
+    --no-index \
+    --find-links ${WHEEL_DIR} \
+    --upgrade \
+    --force-reinstall \
+    --requirement $REQUIREMENTS

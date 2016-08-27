@@ -8,6 +8,7 @@ BASE=$(realpath $(dirname $0))
 BUILD=${BASE}/_build
 VENV=${BUILD}/venv
 STRIKER=${BASE}/striker
+WHEEL_DIR=${BASE}/wheels
 REQUIREMENTS=${BASE}/requirements.txt
 
 PIP=${VENV}/bin/pip
@@ -17,4 +18,6 @@ virtualenv --python python3 $VENV || /bin/true
 $PIP install -r ${STRIKER}/requirements.txt
 $PIP freeze --local --requirement $REQUIREMENTS > $REQUIREMENTS
 $PIP install wheel
-$PIP wheel -r $REQUIREMENTS -w wheels
+$PIP wheel --find-links $WHEEL_DIR \
+    --wheel-dir $WHEEL_DIR \
+    --requirement $REQUIREMENTS
