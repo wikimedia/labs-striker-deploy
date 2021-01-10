@@ -22,3 +22,5 @@ $PIP install \
     --upgrade \
     --force-reinstall \
     --requirement $REQUIREMENTS
+
+cd ${DEPLOY_DIR}/striker && contrib/collectstatic.sh
