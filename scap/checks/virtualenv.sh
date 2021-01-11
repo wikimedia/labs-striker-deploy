@@ -25,3 +25,4 @@ $PIP install \
     --requirement $REQUIREMENTS
 
 cd ${DEPLOY_DIR}/striker && contrib/collectstatic.sh
+cp ${DEPLOY_DIR}/striker/staticfiles/staticfiles.json ${DEPLOY_DIR}/public_html/static/staticfiles.json
