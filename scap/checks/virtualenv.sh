@@ -4,7 +4,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-VENV=/srv/deployment/striker/venv
+# We're going to need $VENV in the collectstatic stage
+export VENV=/srv/deployment/striker/venv
 DEPLOY_DIR=/srv/deployment/striker/deploy
 WHEEL_DIR=${DEPLOY_DIR}/wheels
 REQUIREMENTS=${DEPLOY_DIR}/requirements.txt
